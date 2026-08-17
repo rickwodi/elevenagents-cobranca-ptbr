@@ -50,7 +50,9 @@
     "desc_2": "20",
     "desc_max": "35",
     "max_parcelas": "6",
-    "canal_pagamento": "Pix ou boleto"
+    "canal_pagamento": "Pix ou boleto",
+    "canal_retorno": "0800 555 0100",
+    "protocolo": "2026-0817-4471"
   },
   "_comment_placeholders": "dynamic_variable_placeholders alimenta os testes. Sem isso o agente fala a chave em voz alta."
 }
