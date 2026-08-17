@@ -1,0 +1,53 @@
+{
+  "name": "Cobranca pt-BR",
+  "_comment": "Substituir pelo JSON real exportado do painel depois de configurar. Isto e a intencao de configuracao.",
+  "conversation_config": {
+    "agent": {
+      "language": "pt-br",
+      "additional_languages": ["pt-br"],
+      "first_message": "Oi, boa tarde. Aqui e a assistente do {{CREDOR}}. Falo com {{PRIMEIRO_NOME}}?",
+      "prompt": {
+        "prompt_file": "agent/system-prompt.md",
+        "llm": "gpt-4o",
+        "temperature": 0.3,
+        "max_tokens": 400
+      }
+    },
+    "tts": {
+      "model_id": "eleven_flash_v2_5",
+      "_comment_model": "v2.5 Multilingual entra automaticamente ao adicionar idioma alem do ingles. Flash v2.5 para baixa latencia.",
+      "voice_id": "SUBSTITUIR_POR_VOZ_PT_BR",
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "speed": 1.0
+    },
+    "turn": {
+      "turn_timeout": 7,
+      "silence_end_call_timeout": 20
+    },
+    "conversation": {
+      "max_duration_seconds": 420
+    }
+  },
+  "dynamic_variables": {
+    "PRIMEIRO_NOME": "",
+    "CREDOR": "",
+    "PRODUTO": "",
+    "VALOR_TOTAL": "",
+    "DIAS_ATRASO": "",
+    "DESC_1": "10",
+    "DESC_2": "20",
+    "DESC_MAX": "35",
+    "MAX_PARCELAS": "6",
+    "CANAL_PAGAMENTO": "Pix ou boleto"
+  },
+  "data_collection": {
+    "titular_confirmado": "boolean",
+    "promessa_valor": "number",
+    "promessa_data": "string",
+    "promessa_forma": "string",
+    "contestou_divida": "boolean",
+    "pediu_nao_contatar": "boolean",
+    "escalou_humano": "boolean"
+  }
+}
