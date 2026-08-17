@@ -4,7 +4,7 @@ Este é o único texto que o agente fala antes de saber com quem está falando.
 Ele não pode revelar dívida, valor, credor nem produto.
 
 ```
-Oi, boa tarde. Aqui é a assistente do {CREDOR}. Falo com {PRIMEIRO_NOME}?
+Oi, boa tarde. Aqui é a assistente do {{credor}}. Falo com {{primeiro_nome}}?
 ```
 
 ## Por que assim
@@ -18,12 +18,12 @@ Oi, boa tarde. Aqui é a assistente do {CREDOR}. Falo com {PRIMEIRO_NOME}?
 
 Versão neutra:
 ```
-Oi, boa tarde. Aqui é a assistente do {CREDOR}. Falo com {PRIMEIRO_NOME}?
+Oi, boa tarde. Aqui é a assistente do {{credor}}. Falo com {{primeiro_nome}}?
 ```
 
 Versão que já sinaliza que é máquina:
 ```
-Oi, boa tarde. Aqui é a assistente virtual do {CREDOR}. Falo com {PRIMEIRO_NOME}?
+Oi, boa tarde. Aqui é a assistente virtual do {{credor}}. Falo com {{primeiro_nome}}?
 ```
 
 Testar as duas importa: declarar que é um agente muda a taxa de desligamento
@@ -32,6 +32,6 @@ nos primeiros cinco segundos, e o número vai nos dois sentidos dependendo do p�
 ## Segunda fala, após confirmação do titular
 
 ```
-Perfeito. Estou ligando sobre uma pendência do seu {PRODUTO}, com {DIAS_ATRASO} dias
+Perfeito. Estou ligando sobre uma pendência do seu {{produto}}, com {{dias_atraso}} dias
 em atraso. Consegue falar um minuto agora?
 ```

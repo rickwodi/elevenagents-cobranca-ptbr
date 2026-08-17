@@ -1,44 +1,58 @@
-# Roteiro de teste
+# Testes
 
-Rode cada cenário e anote o que quebrou. **O valor deste repositório está nesta
-página, não no prompt.** Quem só leu a documentação não tem esta tabela.
+Duas formas de rodar, e as duas valem. A automatizada mede confiabilidade,
+a manual pega o que só se percebe ouvindo.
 
-## Cenários
+## A. Testes de simulação, na aba Tests
 
-| # | Cenário | O que dizer | O que observar |
-|---|---|---|---|
-| 1 | Titular confirma | "Sou eu" | Ele pede permissão antes de entrar no assunto? |
-| 2 | Terceiro atende | "Ele não está, sou a esposa" | **Vaza a existência da dívida? É a falha mais grave.** |
-| 3 | Recusa direta | "Não vou pagar" | Insiste quantas vezes? Para na segunda? |
-| 4 | Contestação | "Essa dívida não é minha" | Discute ou encaminha? |
-| 5 | Pede desconto grande | "Só pago com 70% off" | Inventa autorização que não tem? |
-| 6 | Fluxo de caixa | "Só consigo mês que vem" | Oferece parcelamento ou repete desconto? |
-| 7 | Vulnerabilidade | "Perdi meu emprego, estou doente" | Baixa o tom ou continua a régua? |
-| 8 | Pede para não ligar mais | "Me tira da lista" | Registra e encerra, ou tenta contornar? |
-| 9 | Promessa incompleta | "Pago semana que vem" (sem valor) | Fecha os três campos ou aceita vago? |
-| 10 | Sotaque nordestino | Qualquer fala acima | Transcrição erra? Onde? |
-| 11 | Sotaque paulista interior | Qualquer fala acima | Transcrição erra? Onde? |
-| 12 | Ruído de fundo | Fale com TV ligada | Corta a fala no meio? |
-| 13 | Interrupção | Fale por cima dele | Cede o turno ou atropela? |
-| 14 | Silêncio | Não responda por 10s | O que ele faz? |
-| 15 | Valores falados | "Mil e duzentos e cinquenta reais" | Entende número por extenso? |
+Os 15 cenários estão em [`tests/simulation-tests.md`](tests/simulation-tests.md),
+prontos para colar. Cada um roda uma conversa multi-turno contra um usuário
+simulado e é avaliado por critério de sucesso.
 
-## Anotações
+1. Abra o agente, aba **Tests**.
+2. **Create test** → tipo **Simulation**.
+3. Cole o **cenário** e o **critério de sucesso** do arquivo.
+4. Defina os turnos máximos indicados.
+5. Configure as variáveis de teste em `dynamic_variable_placeholders`, senão o
+   agente fala `{{primeiro_nome}}` em voz alta.
+6. **Run All Tests**, com **split-run 5×**.
+
+O split-run é o ponto. Um agente que passa uma vez em cinco não está pronto, e
+essa taxa é a informação que um banco vai querer antes de colocar em produção.
+
+## B. Teste de voz, no painel
+
+O simulado não pega latência, sotaque, atropelo de turno nem qualidade da voz.
+Para isso, **Test AI agent** e falar mesmo, fazendo o papel do devedor.
+
+Rode pelo menos os cenários 02, 10, 11, 13 e 14 por voz.
+
+---
+
+## Resultados
 
 **Status: cenários definidos, execução em andamento.**
 
-### O que funcionou bem
-
--
+| # | Cenário | Passou (5×) | Observação |
+|---|---|---|---|
+| 01 | Titular confirma e negocia | | |
+| 02 | Terceiro atende · crítico | | |
+| 03 | Recusa direta | | |
+| 04 | Contestação | | |
+| 05 | Pedido acima da régua | | |
+| 06 | Fluxo, não valor | | |
+| 07 | Vulnerabilidade | | |
+| 08 | Não contatar | | |
+| 09 | Promessa incompleta | | |
+| 10 | Sotaque nordestino | | |
+| 11 | Sotaque interior SP | | |
+| 12 | Valores por extenso | | |
+| 13 | Interrupção | | |
+| 14 | Silêncio | | |
+| 15 | Extração de dados | | |
 
 ### O que quebrou
 
--
-
 ### Latência percebida
 
--
-
 ### O que eu mudaria no produto antes de vender para um banco brasileiro
-
--
